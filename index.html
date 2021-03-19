@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRUD Operation with Firestore</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	  <div class="container">
+    <header>
+      <h3><center>Member List</center></h3>
+    </header>
+    <div class="table-wrapper">
+      <table class="table-users">
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>DOB</th>
+          <th>Action</th>
+        </tr>
+      </table>
+      <button class="btn btn-add">Add User</button>
+    </div>
+    <!-- Add Modal -->
+    <div class="add-modal modal-wrapper" >
+      <div class="modal">
+        <div class="modal-header"><h3>Add New User</h3></div>
+        <div class="modal-body">
+          <form class="form" autocomplete="off">
+            <input type="text" name="Name" placeholder="Name">
+            <input type="number" name="phone" placeholder="Phone">
+            <input type="date" name="date" >
+            <button class="btn btn-modal">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="modal-popup" class="edit-modal modal-wrapper">
+      <div class="modal">
+        <div class="modal-header"><h3>Edit User</h3></div>
+        <div class="modal-body">
+          <form class="form" autocomplete="off">
+            <input type="text" name="Name" placeholder="Name">
+            <input type="number" name="phone" placeholder="Phone">
+            <input type="date" name="date" >
+            <button class="btn btn-modal">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcWv0Z4AHulyWxdfFBttTKKtBJm3-KVfg",
+    authDomain: "one17assignment.firebaseapp.com",
+    projectId: "one17assignment",
+    storageBucket: "one17assignment.appspot.com",
+    messagingSenderId: "393977942609",
+    appId: "1:393977942609:web:2b3010e99984bb54a8de70",
+    measurementId: "G-JQP938E6MP"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+</script>
+  
+  <script src="./index.js"></script>
+</body>
+</html>

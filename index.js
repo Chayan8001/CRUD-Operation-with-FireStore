@@ -29,15 +29,6 @@ const renderUser = doc => {
     `;
     tableUsers.insertAdjacentHTML('beforeend', tr);
 
-    // Click add user button
-    btnAdd.addEventListener('click', () => {
-    addModal.classList.add('modal-show');
-  
-    addModalForm.Name.value = '';
-    addModalForm.phone.value = '';
-    addModalForm.date.value = '';
-  });
-
     // Click edit user
     const btnEdit = document.querySelector(`[data-id='${doc.id}'] .btn-edit`);
     btnEdit.addEventListener('click', () => {
@@ -49,6 +40,7 @@ const renderUser = doc => {
     editModalForm.date.value = doc.data().date;
 
   });
+
   // Click delete user
   const btnDelete = document.querySelector(`[data-id='${doc.id}'] .btn-delete`);
   btnDelete.addEventListener('click', () => {
@@ -59,7 +51,16 @@ const renderUser = doc => {
     });
   });
 
+
 }
+  // Click add user button
+    btnAdd.addEventListener('click', () => {
+    addModal.classList.add('modal-show');
+  
+    addModalForm.Name.value = '';
+    addModalForm.phone.value = '';
+    addModalForm.date.value = '';
+  });
   // User click anyware outside the modal
   window.addEventListener('click', e => {
     if(e.target === addModal) {
@@ -89,8 +90,7 @@ db.collection('users').onSnapshot(snapshot => {
       }
     })
   })
-
-  // Click submit in add modal
+    // Click submit in add modal
 addModalForm.addEventListener('submit', e => {
   e.preventDefault();
   db.collection('users').add({
@@ -100,7 +100,6 @@ addModalForm.addEventListener('submit', e => {
   });
   modalWrapper.classList.remove('modal-show');
 });
-
   // Click submit in edit modal
   editModalForm.addEventListener('submit', e => {
     e.preventDefault();
